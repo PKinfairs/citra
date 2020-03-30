@@ -383,4 +383,8 @@ inline AudioCore::DspInterface& DSP() {
     return System::GetInstance().DSP();
 }
 
+inline TelemetrySession& Telemetry() {
+    return System::GetInstance().TelemetrySession();
+}
+
 } // namespace Core

@@ -147,6 +147,7 @@ struct Values {
     u16 resolution_factor;
     bool use_frame_limit;
     u16 frame_limit;
+    bool use_format_reinterpret_hack;
     u16 texture_filter_factor;
     std::string texture_filter_name;
 

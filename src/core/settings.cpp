@@ -29,6 +29,7 @@ void Apply() {
     VideoCore::g_shader_jit_enabled = values.use_shader_jit;
     VideoCore::g_hw_shader_enabled = values.use_hw_shader;
     VideoCore::g_hw_shader_accurate_mul = values.shaders_accurate_mul;
+    VideoCore::g_use_format_reinterpret_hack = values.use_format_reinterpret_hack;
     VideoCore::g_use_disk_shader_cache = values.use_disk_shader_cache;
 
     if (VideoCore::g_renderer) {
@@ -85,6 +86,7 @@ void LogSettings() {
     LogSetting("Renderer_UseResolutionFactor", Settings::values.resolution_factor);
     LogSetting("Renderer_UseFrameLimit", Settings::values.use_frame_limit);
     LogSetting("Renderer_FrameLimit", Settings::values.frame_limit);
+    LogSetting("Renderer_FormatReinterpretHack", Settings::values.use_format_reinterpret_hack);
     LogSetting("Renderer_PostProcessingShader", Settings::values.pp_shader_name);
     LogSetting("Renderer_FilterMode", Settings::values.filter_mode);
     LogSetting("Renderer_TextureFilterFactor", Settings::values.texture_filter_factor);
