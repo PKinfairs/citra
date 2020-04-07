@@ -151,9 +151,9 @@ public:
 
     void AddTicks(std::uint64_t ticks) override {
         if (Settings::values.FMV_hack) {
-            timing.AddTicks(Settings::values.AddTicks);
+            parent.GetTimer()->AddTicks(Settings::values.AddTicks);
         } else {
-            timing.AddTicks(ticks);
+            parent.GetTimer()->AddTicks(ticks);
         }
     }
     std::uint64_t GetTicksRemaining() override {

@@ -155,7 +155,7 @@ FramebufferLayout SingleFrameLayout(u32 width, u32 height, bool swapped, bool up
     return res;
 }
 
-FramebufferLayout MediumFrameLayout(u32 width, u32 height, bool swapped) {
+FramebufferLayout MediumFrameLayout(u32 width, u32 height, bool swapped, bool upright) {
     ASSERT(width > 0);
     ASSERT(height > 0);
 
@@ -195,7 +195,7 @@ FramebufferLayout MediumFrameLayout(u32 width, u32 height, bool swapped) {
     return res;
 }
 
-FramebufferLayout LargeFrameLayout(u32 width, u32 height, bool swapped) {
+FramebufferLayout LargeFrameLayout(u32 width, u32 height, bool swapped, bool upright) {
     ASSERT(width > 0);
     ASSERT(height > 0);
 
