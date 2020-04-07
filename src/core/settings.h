@@ -152,6 +152,8 @@ struct Values {
     bool use_format_reinterpret_hack;
     u16 texture_filter_factor;
     std::string texture_filter_name;
+    bool FMV_hack;
+    u16 AddTicks;
 
     LayoutOption layout_option;
     bool swap_screen;

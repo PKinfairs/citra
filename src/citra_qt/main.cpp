@@ -478,7 +478,12 @@ void GMainWindow::InitializeHotkeys() {
                     UpdateStatusBar();
                 }
             });
-    connect(hotkey_registry.GetHotkey(main_window, QStringLiteral("Toggle Frame Advancing"), this),
+    connect(hotkey_registry.GetHotkey("Main Window", "Toggle FMV-Hack", this),
+            &QShortcut::activated, this, [&] {
+                Settings::values.FMV_hack = !Settings::values.FMV_hack;
+                UpdateStatusBar();
+            });
+    connect(hotkey_registry.GetHotkey("Main Window", "Toggle Frame Advancing", this),
             &QShortcut::activated, ui.action_Enable_Frame_Advancing, &QAction::trigger);
     connect(hotkey_registry.GetHotkey(main_window, QStringLiteral("Advance Frame"), this),
             &QShortcut::activated, ui.action_Advance_Frame, &QAction::trigger);
