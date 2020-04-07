@@ -258,7 +258,7 @@ System::ResultStatus System::Init(Frontend::EmuWindow& emu_window, u32 system_mo
 
     memory = std::make_unique<Memory::MemorySystem>();
 
-    timing = std::make_unique<Timing>(num_cores);
+    timing = std::make_unique<Timing>(num_cores, Settings::values.cpu_clock_percentage);
 
     kernel = std::make_unique<Kernel::KernelSystem>(
         *memory, *timing, [this] { PrepareReschedule(); }, system_mode, num_cores, n3ds_mode);
@@ -310,6 +310,12 @@ System::ResultStatus System::Init(Frontend::EmuWindow& emu_window, u32 system_mo
     Service::Init(*this);
     GDBStub::DeferStart();
 
+#ifdef ENABLE_FFMPEG_VIDEO_DUMPER
+    video_dumper = std::make_unique<VideoDumper::FFmpegBackend>();
+#else
+    video_dumper = std::make_unique<VideoDumper::NullBackend>();
+#endif
+
     VideoCore::ResultStatus result = VideoCore::Init(emu_window, *memory);
     if (result != VideoCore::ResultStatus::Success) {
         switch (result) {
@@ -321,12 +327,6 @@ System::ResultStatus System::Init(Frontend::EmuWindow& emu_window, u32 system_mo
             return ResultStatus::ErrorVideoCore;
         }
     }
-
-#ifdef ENABLE_FFMPEG_VIDEO_DUMPER
-    video_dumper = std::make_unique<VideoDumper::FFmpegBackend>();
-#else
-    video_dumper = std::make_unique<VideoDumper::NullBackend>();
-#endif
 
     LOG_DEBUG(Core, "Initialized OK");
 

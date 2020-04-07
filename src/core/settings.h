@@ -128,6 +128,7 @@ struct Values {
 
     // Core
     bool use_cpu_jit;
+    int cpu_clock_percentage;
 
     // Data Storage
     bool use_virtual_sd;
@@ -207,6 +208,18 @@ struct Values {
     std::string web_api_url;
     std::string citra_username;
     std::string citra_token;
+
+    // Video Dumping
+    std::string output_format;
+    std::string format_options;
+
+    std::string video_encoder;
+    std::string video_encoder_options;
+    u64 video_bitrate;
+
+    std::string audio_encoder;
+    std::string audio_encoder_options;
+    u64 audio_bitrate;
 } extern values;
 
 // a special value for Values::region_value indicating that citra will automatically select a region
