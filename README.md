@@ -1,3 +1,6 @@
+**I MAKE THIS BUILD BASED ON FIXED IN RASP BUILD TO THE LATEST CITRA VERSION**
+==============
+
 **BEFORE FILING AN ISSUE, READ THE RELEVANT SECTION IN THE [CONTRIBUTING](https://github.com/citra-emu/citra/wiki/Contributing#reporting-issues) FILE!!!**
 
 Citra
